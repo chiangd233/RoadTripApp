@@ -41,9 +41,10 @@ INSTALLED_APPS = [
     # Third Party Apps
     'corsheaders',
     'rest_framework',
-
+    
     # Added
     'roadtrip',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -140,8 +141,9 @@ REST_FRAMEWORK = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000'
 ]
+
+# Custom User Model
+AUTH_USER_MODEL = "users.NewUser"

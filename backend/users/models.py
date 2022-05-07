@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+from django.core.validators import MinLengthValidator
 
 # Create your models here.
 
@@ -17,7 +18,7 @@ class CustomAccountManager(BaseUserManager):
         if other_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must be assigned to is_superuser = True.')
     
-        return self.create.user(email, username, first_name, password, **other_fields)
+        return self.create_user(email, username, first_name, password, **other_fields)
     
     def create_user(self, email, username, first_name, password, **other_fields):
         
@@ -32,7 +33,7 @@ class CustomAccountManager(BaseUserManager):
 
 class NewUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), unique = True)
-    username = models.CharField(max_length = 128, min_length = 8, unique = True)
+    username = models.CharField(max_length = 128, unique = True, validators=[MinLengthValidator(8)])
     first_name = models.CharField(max_length = 50)
     created_at = models.DateTimeField(default = timezone.now)
     description = models.TextField()
