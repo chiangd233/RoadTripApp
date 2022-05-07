@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
-from django.contrib.auth.models import User
+from django.conf import settings
 
 # Create your models here.
 CATEGORY_CHOICES = (
@@ -83,7 +83,7 @@ class RoadTrip(models.Model):
     time = models.IntegerField(validators = [MinValueValidator(1)]) #days
     thingstodo = models.ManyToManyField(ThingsTodo)
     created_at = models.DateTimeField(auto_now_add = True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def _str_ (self):
         return self.name
