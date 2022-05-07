@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function App() {
+  const [roadtripList, setRoadtripList] = useState([])
+
+  useEffect(() => {
+    axios
+    .get("api/roadtrip")
+    .then((res) => {
+      console.log(res.data)
+      setRoadtripList(res.data)
+    })
+    .catch((err) => console.log(err))
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+    <div>
+      <div>
+        <p>{roadtripList.map((e) => {
+          return(
+            <div>
+              <p>Name: {e.name}</p>
+              <p>Estimated Travel Time {e.time} hours</p>
+              <p>Description: {e.description}</p>
+              <p>Created by: {e.user}</p>
+            </div>
+          )
+        })}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
     </div>
   );
 }
 
-export default App;
+export default App; 
