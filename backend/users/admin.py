@@ -11,7 +11,7 @@ class UserAdminConfig(UserAdmin):
     model = NewUser
     search_fields = ('email', 'username', 'first_name',)
     list_filter = ('email', 'username', 'first_name', 'is_active', 'is_staff')
-    ordering = ('-created-at',)
+    ordering = ('-created_at',)
     list_display = ('email', 'username', 'first_name', 'is_active', 'is_staff')
 
     fieldsets = (
