@@ -25,7 +25,9 @@ router.register(r'thingstodo', views.ThingsTodoView, 'thingstodo')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path('api/', views.RoadTripView.as_view(), name = 'roadtripview'),
+    path('api/<int:pk>', views.RoadTripDetail.as_view(), name = 'roadtripdetail'),
+    path('api/thingstodo', views.ThingsTodoView.as_view(), name = 'thingstodoview'),
     path('api/user/', include('users.urls', namespace = 'users')),
     path('api-auth/', include('rest_framework.urls', namespace = 'rest_framework')),
     path('api/token/', TokenObtainPairView.as_view(), name = 'token_obtain_pair'),

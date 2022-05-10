@@ -74,7 +74,7 @@ class ThingsTodo(models.Model):
     time = models.IntegerField(validators = [MinValueValidator(1), MaxValueValidator(24)]) # hours
     description = models.TextField()
 
-    def _str_ (self):
+    def __str__ (self):
         return self.name
         
 class RoadTrip(models.Model):
@@ -85,7 +85,7 @@ class RoadTrip(models.Model):
     created_at = models.DateTimeField(auto_now_add = True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
-    def _str_ (self):
+    def __str__ (self):
         return self.name
 
     class Meta:
