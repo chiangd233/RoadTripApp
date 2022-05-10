@@ -15,3 +15,7 @@ class RoadTripDetail(generics.RetrieveDestroyAPIView):
 class ThingsTodoView(generics.ListCreateAPIView):
     serializer_class = ThingsTodoSerializer
     queryset = ThingsTodo.objects.all()
+
+class ThingsTodoDetail(generics.RetrieveDestroyAPIView):
+    serializer_class = ThingsTodoSerializer
+    queryset = ThingsTodo.objects.all()
