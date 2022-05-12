@@ -1,7 +1,7 @@
 import {NavLink} from 'react-router-dom'
 import React from 'react';
 import '../index.css';
-
+import sedan from '../photos/sedan.png'
 
 
 
@@ -10,8 +10,8 @@ const Header = (props) => {
         <>
             <div class = 'container'>
                 <div class = 'title'>
-                    <img src = 'frontend/public/photos/sedan.png' alt = 'Pit Stop Icon' ></img>
-                    <h1>PIT STOP</h1>
+                    <img src = {sedan} alt = 'Pit Stop Icon' height = '100px' width = '100px' ></img>
+                    <h1 class = 'logo'>PIT STOP</h1>
                 </div>
                 <div class = 'header'>
                     <div class = 'link'>

@@ -16,6 +16,10 @@ body {
   justify-content: center;
 }
 
+.logo {
+  padding: 12px 0 0 10px;
+}
+
 .header {
   display: flex;
   flex-direction: row;

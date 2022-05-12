@@ -1,27 +1,42 @@
+import React, { useState, useEffect } from "react";
 import {NavLink} from 'react-router-dom'
-import React from 'react';
 
-
-const Thingstodo = (props) => {
-	const { thingstodo } = props;
-	if (!thingstodo || thingstodo.length === 0) return <div><h1> Explore Things to Do</h1> <p>Can not find any thing to do</p> </div>;
-	return (
+function Thingstodo () {
+    const [thingsTodo, setThingsTodo] = useState ([]);
+    
+    useEffect(() => {
+        const apiUrl = 'http://127.0.0.1:8000/api/thingstodo';
+        fetch(apiUrl)
+            .then((data) => data.json())
+            .then((payload) => {
+                setThingsTodo(payload);
+            });
+    }, []);
+    
+    console.log(thingsTodo)
+    
+	if (!thingsTodo || thingsTodo.length === 0) return <div class = 'container'><h1> Explore Things to Do</h1> <p>Can not find any thing to do. Add Something!</p> </div>;
+    
+    return (
         <div class = 'container'>
             <h1> Explore Things to Do</h1>
             <div>
-                <p> {thingstodo.map((e) => {
+                <p> {thingsTodo.map((e) => {
                     return(
                         <div>
-                            <NavLink to = '/{e.id}'> {e.name} </NavLink>
-                            <p> Estimated Travel Time: {e.time} hours</p>
+                            <NavLink to = {`/${e.id}`}> {e.name} </NavLink>
+                            <p> {e.city}, {e.state}</p>
+                            <p> Estimated time: {e.time} hours</p>
                             <p> {e.description} </p>
                         </div>
-                    )
+                    ) 
                     })}
-                    </p> 
+                </p>
             </div>
         </div>
 	);
 };
+
+
 
 export default Thingstodo

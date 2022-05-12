@@ -25,6 +25,7 @@ function App() {
       <Loading isloading = {appState.loading} roadtrip = {appState.roadtrip} />
     </div>
   )
+
 }
 
 export default App
