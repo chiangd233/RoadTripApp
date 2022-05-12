@@ -4,12 +4,13 @@ import '../index.css';
 
 
 
+
 const Header = (props) => {
 	return (
         <>
             <div class = 'container'>
                 <div class = 'title'>
-                    <img src = '../photos/sedan.png' alt = 'Pit Stop Icon' ></img>
+                    <img src = 'frontend/public/photos/sedan.png' alt = 'Pit Stop Icon' ></img>
                     <h1>PIT STOP</h1>
                 </div>
                 <div class = 'header'>

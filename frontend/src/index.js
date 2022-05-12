@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import App from './App';
+import Thingstodo from './components/thingstodo'
 import Header from'./components/header'
 import Footer from './components/footer'
 import SignUp from './components/register'
@@ -15,6 +16,7 @@ root.render (
       <Header />
       <Routes>
         <Route exact path= '/' element = {<App />} />
+        <Route path = '/thingstodo' element = {<Thingstodo />} />
         {/* <Route path = '/register' component = {SignUp} />
         <Route path = '/login' component = {SignIn} /> */}
       </Routes>
