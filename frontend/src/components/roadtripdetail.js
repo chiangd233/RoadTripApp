@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import {NavLink, useParams} from 'react-router-dom'
-import axios from "../axios"
+import axiosInstance from '../axios.js';
 
-const deleteRoadTrip = (id) => {
-    console.log("deleting...")
-    axios.delete(`http://127.0.0.1:8000/api/${id}`).then(() => console.log("delete successful"));
-};
+
 
 function RoadTripDetail () {
     const { id } = useParams();
     const [detail, setDetail] = useState ({});
     
+    const deleteRoadTrip = (id) => {
+        axiosInstance.delete(`${id}`).then(() => console.log("delete successful"));
+    };
+
     useEffect(() => {
         const apiUrl = `http://127.0.0.1:8000/api/${id}`;
         fetch(apiUrl)
@@ -39,7 +40,7 @@ function RoadTripDetail () {
                     </ul>
                     
                     <NavLink to="edit"><button>Edit</button></NavLink>
-                    <button onClick={deleteRoadTrip(id)}>Delete</button>
+                    <NavLink to='/'><button onClick={() => deleteRoadTrip(id)}>Delete</button> </NavLink>
                 </div>
             </div>
         </div>

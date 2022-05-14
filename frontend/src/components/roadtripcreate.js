@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import {NavLink, useParams} from 'react-router-dom'
-import axios from "../axios"
+import axios from "axios"
 
 const CreateRoadTrip = () => {
     const initialState = {
@@ -23,13 +22,8 @@ const CreateRoadTrip = () => {
             time: roadtrip.time,
             thingstodo: roadtrip.thingstodo,
         };
-        const baseURL = 'http://127.0.0.1:8000/api/';
-        axios 
-            .post(`${baseURL}/create`, data, {
-                headers: {
-                    headers,
-                },
-            })
+        const baseURL = 'http://localhost:8000/api';
+        axios
             .then((response) => {
                 setRoadtrip({
                     id: response.data.id,
@@ -41,9 +35,13 @@ const CreateRoadTrip = () => {
                 setSubmitted(true);
                 console.log(response.data);
             })
+            .post(`${baseURL}/create`, JSON.parse(data.thingstodo), {
+                headers: {},
+            })
             .catch((e) => {
                 console.error(e);
             });
+
     };
     const newRoadtrip = () => {
         setRoadtrip(initialState);
@@ -57,7 +55,7 @@ const CreateRoadTrip = () => {
                 className="alert alert-success alert-dismissible fade show"
                 role="alert"
               >
-                Menu Added!
+                RoadTripDetail Added!
                 <button
                   type="button"
                   className="close"
@@ -104,7 +102,7 @@ const CreateRoadTrip = () => {
                   className="form-control"
                   id="time"
                   required
-                  value={roadtrip.name}
+                  value={roadtrip.time}
                   onChange={handleRoadtripChange}
                   name="time"
                 />

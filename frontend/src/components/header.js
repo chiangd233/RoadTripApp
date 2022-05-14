@@ -18,7 +18,7 @@ const Header = (props) => {
                         <NavLink to = '/'> Home </NavLink>
                     </div>
                     <div class = 'link'>
-                        <NavLink to = '/roadtrip'> Add a Road Trip </NavLink>
+                        <NavLink to = '/create'> Add a Road Trip </NavLink>
                     </div>
                     <div class = 'link'>
                         <NavLink to = '/thingstodo'>  Explore Things to Do </NavLink>

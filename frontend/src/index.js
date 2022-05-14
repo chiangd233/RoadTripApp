@@ -4,7 +4,7 @@ import './index.css';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import App from './App';
 import RoadTripDetail from './components/roadtripdetail';
-import RoadTripDelete from './components/roadtripdelete'
+import RoadTripCreate from './components/roadtripcreate'
 import ThingsTodo from './components/thingstodo'
 import ThingsTodoDetail from './components/thingstododetail'
 import Header from'./components/header'
@@ -20,7 +20,7 @@ root.render (
       <Routes>
         <Route exact path= '/' element = {<App />} />
         <Route path = '/:id' element = {<RoadTripDetail />} />
-        <Route path = '/:id/delete' element = {<RoadTripDelete />} />
+        <Route path = '/create' element = {<RoadTripCreate />} />
         <Route path = '/thingstodo' element = {<ThingsTodo />} />
         <Route path = '/thingstodo/:id' element = {<ThingsTodoDetail />} />
         {/* <Route path = '/register' component = {SignUp} />
