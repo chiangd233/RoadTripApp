@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import axiosInstance from '../axios'
-import { useHistory } from 'react-router-dom';
+import axiosInstance from '../axios.js';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
-    const history = useHistory();
+    const history = useNavigate();
     const initialFormData = Object.freeze({
         email: '',
         username: '',
@@ -35,4 +35,13 @@ export default function SignUp() {
                 console.log(res.data);
             });
     };
+
+    return (
+        <div class = 'container'>
+            <h1> Sign up </h1>
+            
+ 
+        </div>
+    )
 }
+
