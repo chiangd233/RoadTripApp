@@ -29,7 +29,7 @@ function RoadTripDetail () {
                     <p> {detail.name} </p>
                     <p> Estimated Travel Time: {detail.time} </p>
                     <p> {detail.description} </p>
-                    <p> {detail.thingstodo}</p>
+                    <p>Things to do added to this road trip:</p>
                     <ul>
                         { detail.thingstodo?.map((e) => {
                             return(

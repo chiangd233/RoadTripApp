@@ -20,6 +20,7 @@ function ThingsTodo () {
     return (
         <div class = 'container'>
             <h1> Explore Things to Do</h1>
+            <NavLink to="create"><button>Add Something Else to do</button></NavLink>
             <div>
                  {thingsTodo.map((e) => {
                     return(

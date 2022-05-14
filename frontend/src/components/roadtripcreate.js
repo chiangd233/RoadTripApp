@@ -23,7 +23,9 @@ const CreateRoadTrip = () => {
             thingstodo: roadtrip.thingstodo,
         };
         const baseURL = 'http://localhost:8000/api';
-        axios
+        axios.post(`${baseURL}/create`, JSON.parse(data.thingstodo), {
+                headers: {},
+            })
             .then((response) => {
                 setRoadtrip({
                     id: response.data.id,
@@ -34,9 +36,6 @@ const CreateRoadTrip = () => {
                 });
                 setSubmitted(true);
                 console.log(response.data);
-            })
-            .post(`${baseURL}/create`, JSON.parse(data.thingstodo), {
-                headers: {},
             })
             .catch((e) => {
                 console.error(e);
@@ -85,7 +84,7 @@ const CreateRoadTrip = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="description">Description</label>
-                <input
+                <textarea
                   type="text"
                   className="form-control"
                   id="description"

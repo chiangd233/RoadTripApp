@@ -7,6 +7,7 @@ import RoadTripDetail from './components/roadtripdetail';
 import RoadTripCreate from './components/roadtripcreate'
 import ThingsTodo from './components/thingstodo'
 import ThingsTodoDetail from './components/thingstododetail'
+import CreateThingsTodo from './components/thingstodocreate'
 import Header from'./components/header'
 import Footer from './components/footer'
 import SignUp from './components/register'
@@ -23,6 +24,7 @@ root.render (
         <Route path = '/create' element = {<RoadTripCreate />} />
         <Route path = '/thingstodo' element = {<ThingsTodo />} />
         <Route path = '/thingstodo/:id' element = {<ThingsTodoDetail />} />
+        <Route path = '/thingstodo/create' element = {<CreateThingsTodo />} />
         {/* <Route path = '/register' component = {SignUp} />
         <Route path = '/login' component = {SignIn} /> */}
       </Routes>
