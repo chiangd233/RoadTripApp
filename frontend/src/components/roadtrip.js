@@ -13,7 +13,7 @@ const RoadTrip = (props) => {
                 <p> {roadtrip.map((e) => {
                     return(
                         <div>
-                            <NavLink to = {`/${e.id}`}> {e.name} </NavLink>
+                            <NavLink to = {`${e.id}`}> {e.name} </NavLink>
                             <p> Estimated Travel Time: {e.time} hours</p>
                             <p> {e.description} </p>
                         </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {NavLink} from 'react-router-dom'
 
-function Thingstodo () {
+function ThingsTodo () {
     const [thingsTodo, setThingsTodo] = useState ([]);
     
     useEffect(() => {
@@ -21,17 +21,16 @@ function Thingstodo () {
         <div class = 'container'>
             <h1> Explore Things to Do</h1>
             <div>
-                <p> {thingsTodo.map((e) => {
+                 {thingsTodo.map((e) => {
                     return(
                         <div>
-                            <NavLink to = {`/${e.id}`}> {e.name} </NavLink>
+                            <NavLink to = {`${e.id}`}> {e.name} </NavLink>
+                            <p>Category: {e.category} </p>
                             <p> {e.city}, {e.state}</p>
                             <p> Estimated time: {e.time} hours</p>
-                            <p> {e.description} </p>
                         </div>
                     ) 
                     })}
-                </p>
             </div>
         </div>
 	);
@@ -39,4 +38,4 @@ function Thingstodo () {
 
 
 
-export default Thingstodo
+export default ThingsTodo
