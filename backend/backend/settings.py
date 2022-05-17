@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # Third Party Apps
     'corsheaders',
     'rest_framework',
+    'rest_framework_simplejwt.token_blacklist',
     
     # Added
     'roadtrip',

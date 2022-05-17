@@ -23,8 +23,10 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', views.RoadTripView.as_view(), name = 'roadtripview'),
+    path('api/create', views.RoadTripCreate.as_view(), name = 'roadtripcreate'),
     path('api/<int:pk>', views.RoadTripDetail.as_view(), name = 'roadtripdetail'),
     path('api/thingstodo', views.ThingsTodoView.as_view(), name = 'thingstodoview'),
+    path('api/thingstodo/create', views.ThingsTodoCreate.as_view(), name = 'thingstodocreate'),
     path('api/thingstodo/<int:pk>', views.ThingsTodoDetail.as_view(), name = 'thingstododetail'),
     path('api/user/', include('users.urls', namespace = 'users')),
     path('api-auth/', include('rest_framework.urls', namespace = 'rest_framework')),
