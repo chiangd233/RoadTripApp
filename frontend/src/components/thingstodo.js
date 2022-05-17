@@ -21,10 +21,10 @@ function ThingsTodo () {
         <div class = 'container'>
             <h1> Explore Things to Do</h1>
             <NavLink to="create"><button>Add Something Else to do</button></NavLink>
-            <div>
+            <div class = 'outdiv'>
                  {thingsTodo.map((e) => {
                     return(
-                        <div>
+                        <div class = 'div'>
                             <NavLink to = {`${e.id}`}> {e.name} </NavLink>
                             <p>Category: {e.category} </p>
                             <p> {e.city}, {e.state}</p>

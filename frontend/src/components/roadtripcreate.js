@@ -7,7 +7,7 @@ const CreateRoadTrip = () => {
         name: "",
         description: "",
         time: "",
-        thingstodo: "",
+        thingstodo: [],
     };
     const[roadtrip, setRoadtrip] = useState(initialState);
     const[submitted, setSubmitted] = useState(false);
@@ -47,7 +47,7 @@ const CreateRoadTrip = () => {
         setSubmitted(false);
     };
     return (
-        <div className="submit-form">
+        <div class = "container">
           {submitted ? (
             <div>
               <div
@@ -108,15 +108,17 @@ const CreateRoadTrip = () => {
               </div>
               <div className="form-group">
                 <label htmlFor="thingstodo">Things to Do</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="thingstodo"
-                  required
-                  value={roadtrip.thingstodo}
+                <select
+                value = {roadtrip.thingstodo}
                   onChange={handleRoadtripChange}
                   name="thingstodo"
-                />
+                >
+                  {  
+                    roadtrip.thingstodo.map((e) => {
+                      return( <option value = {e.thingstodo}> {`${e.thingstodo}`} </option> )
+                    })
+                  }
+                  </select>
               </div>
               <button onClick={submitRoadtrip}>
                 Submit

@@ -110,7 +110,7 @@ const CreateThingsTodo = () => {
         setSubmitted(false);
     };
     return (
-        <div className="submit-form">
+        <div class = 'container'>
           {submitted ? (
             <div>
               <div

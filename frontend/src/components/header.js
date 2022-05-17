@@ -15,6 +15,17 @@ const Header = (props) => {
                 </div>
                 <div class = 'header'>
                     <div class = 'link'>
+                        <NavLink to = '/user/register'> Sign Up </NavLink>
+                    </div>
+                    <div class = 'link'>
+                        <NavLink to = '/user/login'> Sign In </NavLink>
+                    </div>
+                    <div class = 'link'>
+                        <NavLink to = '/user/logout'> Logout </NavLink>
+                    </div>
+                </div>
+                <div class = 'header'>
+                    <div class = 'link'>
                         <NavLink to = '/'> Home </NavLink>
                     </div>
                     <div class = 'link'>
@@ -24,7 +35,7 @@ const Header = (props) => {
                         <NavLink to = '/thingstodo'>  Explore Things to Do </NavLink>
                     </div>
                     <div class = 'link'>
-                        <NavLink to = '/thingstodo'> My Profile </NavLink>
+                        <NavLink to = '/thingstodo'> Welcome  </NavLink>
                     </div>
                 </div>
             </div>

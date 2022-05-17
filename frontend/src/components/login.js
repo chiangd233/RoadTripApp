@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import axiosInstance from '../axios'
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export default function SignIn() {
     const history = useNavigate();
     const initialFormData = Object.freeze({
         email: '',
-        username: '',
         password: '',
     });
 
@@ -21,45 +20,67 @@ export default function SignIn() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
 
         axiosInstance
-            .post('user/create/', {
+            .post('token/', {
                 email: formData.email,
-                username: formData.username,
                 password: formData.password,
             })
             .then((res) => {
-                history.push('/login');
+                localStorage.setItem('access_token', res.data.access);
+                localStorage.setItem('refresh_token', res.data.refresh)
+                axiosInstance.defaults.headers['Authorization'] = 'JWT ' + localStorage.getItem('access_token');
+                history('/');
                 console.log(res);
                 console.log(res.data);
             });
     };
 
     return (
-        <body>
-            <header>
-            <h1>Login Form Using Skeleton CSS</h1>
-            </header>
-            <div class="main">
-                <form>
-                    <div class="row">
-                        <div class="twelve">
-                            <input type="text" placeholder="Email Address*" onChange = {handleChange} class="u-full-width" required />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="twelve">
-                            <input type="password" placeholder="Password*" onChange = {handleChange} class="u-full-width" required />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="twelve">
-                            <input type="submit" name="" onChange = {handleSubmit} class="button-primary u-full-width" value="Login" />
-                        </div>
-                    </div>
-                </form>
+        <div class = 'container'>
+            <h1> Sign in </h1>
+            <div>
+                <label htmlFor="email">Email</label>
+                <input
+                    variant = "outlined"
+                    required
+                    fullWidth
+                    id = "email"
+                    label = "Email Address"
+                    name = "email"
+                    type = "email"
+                    autoComplete = "email"
+                    autoFocus 
+                    onChange = {handleChange}
+                />
             </div>
-        </body>
+            <div>
+                <label htmlFor="name">Password</label>
+                <input
+                    variant = "outlined"
+                    required
+                    fullWidth
+                    id = "password"
+                    label = "Password"
+                    name = "password"
+                    type = "password"
+                    autoComplete = "current-password"
+                    onChange = {handleChange}
+                />
+            </div>
+            <div>
+                <NavLink to = '/'>
+                    <button
+                        type = "submit"
+                        fullWidth
+                        variant = "contained"
+                        color = "primary"
+                        onClick = {handleSubmit}
+                    >
+                    Sign In
+                    </button>
+                </NavLink>
+            </div>
+        </div>
     )
 }

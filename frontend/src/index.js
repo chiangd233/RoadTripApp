@@ -12,6 +12,7 @@ import Header from'./components/header'
 import Footer from './components/footer'
 import SignUp from './components/register'
 import SignIn from './components/login'
+import Logout from './components/logout'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render (
@@ -25,8 +26,9 @@ root.render (
         <Route path = '/thingstodo' element = {<ThingsTodo />} />
         <Route path = '/thingstodo/:id' element = {<ThingsTodoDetail />} />
         <Route path = '/thingstodo/create' element = {<CreateThingsTodo />} />
-        {/* <Route path = '/register' component = {SignUp} />
-        <Route path = '/login' component = {SignIn} /> */}
+        <Route path = '/user/register' element = {<SignUp />} />
+        <Route path = '/user/login' element = {<SignIn />} />
+        <Route path = '/user/logout' element = {<Logout />} />
       </Routes>
       <Footer />
     </React.StrictMode>

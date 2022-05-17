@@ -26,6 +26,7 @@ body {
   justify-content: space-around;
   border-bottom: 2px solid black;
   padding: 0 0 10px 0;
+  margin: 5px;
 }
 
 .footer {
@@ -33,4 +34,19 @@ body {
   flex-direction: row;
   justify-content: space-around;
   border-top: 2px solid black
+}
+
+.outerdiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+}
+.div{
+  display: flex;
+  max-width: 48%;
+  flex-direction: column;
+  border: 1px solid black;
+  border-style: outset;
+  margin: 5px;
 }
